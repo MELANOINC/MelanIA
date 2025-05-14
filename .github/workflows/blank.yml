@@ -1,0 +1,66 @@
+# This is a basic workflow to help you get started with Actions
+name: Generación de Leads y Ventas
+
+on:
+  workflow_dispatch: # Permite ejecutar manualmente desde GitHub Actions
+  schedule:
+    - cron: "0 9 * * *" # Corre diariamente a las 9 AM
+
+jobs:
+  capturar_leads:
+    name: Captura de Leads
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Configurar entorno
+        run: echo "Preparando entorno para capturar leads..."
+
+      - name: Capturar Leads desde Webhook
+        run: |
+          # Configuración para capturar leads desde un webhook
+          curl -X POST "https://api.tuwebhook.com/captura" -d '{"origen": "Formulario Web"}'
+
+      - name: Guardar Leads en Google Sheets
+        run: |
+          # Aquí puedes usar una API para guardar en Google Sheets
+          echo "Guardando leads en Google Sheets..."
+
+      - name: Enviar WhatsApp a Lead
+        run: |
+          # Usar API de WhatsApp para enviar mensaje
+          curl -X POST "https://api.whatsapp.com/send" -d '{"mensaje": "Gracias por contactarnos"}'
+
+  seguimiento_automatico:
+    name: Seguimiento Automático
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Detectar Leads sin Respuesta
+        run: |
+          # Detectar leads sin seguimiento en el CRM
+          echo "Buscando leads sin respuesta..."
+
+      - name: Enviar Recordatorio por WhatsApp/Email
+        run: |
+          # Enviar recordatorio al lead
+          echo "Enviando recordatorio por WhatsApp"
+
+      - name: Actualizar Estado en CRM
+        run: |
+          # API para actualizar el estado del lead en el CRM
+          echo "Marcando lead como 'En seguimiento'"
+
+  alerta_lead_caliente:
+    name: Alerta por Lead Caliente
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Detectar Actividad en Emails
+        run: |
+          # Analiza actividad en correos
+          echo "Detectando actividad reciente en emails..."
+
+      - name: Crear Tarea en CRM
+        run: |
+          # Crear alerta interna y asignar tarea a responsable
+          echo "Creando tarea en CRM para lead caliente"
