@@ -1,10 +1,10 @@
 # This is a basic workflow to help you get started with Actions
-name: Generación de Leads y Ventas
+name: Lead Generation and Sales
 
 on:
   workflow_dispatch: # Permite ejecutar manualmente desde GitHub Actions
   schedule:
-    - cron: "0 9 * * *" # Corre diariamente a las 9 AM
+    - cron: "0 10 * * *" # Corre diariamente a las 10 AM
 
 jobs:
   capturar_leads:
@@ -18,17 +18,17 @@ jobs:
       - name: Capturar Leads desde Webhook
         run: |
           # Configuración para capturar leads desde un webhook
-          curl -X POST "https://api.tuwebhook.com/captura" -d '{"origen": "Formulario Web"}'
+          curl -X POST "https://api.nuevo-webhook.com/captura" -d '{"origen": "Formulario Web"}'
 
       - name: Guardar Leads en Google Sheets
         run: |
           # Aquí puedes usar una API para guardar en Google Sheets
-          echo "Guardando leads en Google Sheets..."
+          curl -X POST "https://api.nueva-api.com/guardar" -d '{"leads": "data"}'
 
       - name: Enviar WhatsApp a Lead
         run: |
           # Usar API de WhatsApp para enviar mensaje
-          curl -X POST "https://api.whatsapp.com/send" -d '{"mensaje": "Gracias por contactarnos"}'
+          curl -X POST "https://api.nueva-whatsapp.com/send" -d '{"mensaje": "Gracias por contactarnos"}'
 
   seguimiento_automatico:
     name: Seguimiento Automático
