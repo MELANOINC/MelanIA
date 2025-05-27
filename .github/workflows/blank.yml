@@ -18,12 +18,14 @@ jobs:
       - name: Capturar Leads desde Webhook
         run: |
           # Configuración para capturar leads desde un webhook
-          curl -X POST "https://api.nuevo-webhook.com/captura" -d '{"origen": "Formulario Web"}'
+          curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_Q3t6telJQ9Dx4ZWgzGcRhU3fhHck/G9yYjO2cvq" 
+          -d '{"origen": "Formulario Web"}'
 
       - name: Guardar Leads en Google Sheets
         run: |
           # Aquí puedes usar una API para guardar en Google Sheets
-          curl -X POST "https://api.nueva-api.com/guardar" -d '{"leads": "data"}'
+          curl -X POST "https://script.google.com/macros/s/AKfycbyVsqcnJ1T7DHkBIwff3_Vdw88hBwFo-o7Z-87hH8dSO2GpYYhQL7_ANCIhnc_PEEEX/exec"
+          -d '{"leads": "data"}'
 
       - name: Enviar WhatsApp a Lead
         run: |
