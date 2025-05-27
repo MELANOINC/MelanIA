@@ -5,12 +5,14 @@ const Activar = () => {
   const [name, setName] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
   const [interest, setInterest] = useState('');
+  const [email, setEmail] = useState('');
+  const [department, setDepartment] = useState('');
   const history = useHistory();
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission and redirect to Melania conversational flow
-    history.push(`/melania_flow?name=${name}&whatsapp=${whatsapp}&interest=${interest}`);
+    history.push(`/melania_flow?name=${name}&whatsapp=${whatsapp}&interest=${interest}&email=${email}&department=${department}`);
   };
 
   return (
@@ -50,6 +52,24 @@ const Activar = () => {
             <option value="ventas_automatizadas">Ventas automatizadas</option>
             <option value="ambas">Ambas</option>
           </select>
+
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+
+          <label htmlFor="department">Departamento</label>
+          <input
+            type="text"
+            id="department"
+            value={department}
+            onChange={(e) => setDepartment(e.target.value)}
+            required
+          />
 
           <button type="submit">Hablá con Melania</button>
         </form>
