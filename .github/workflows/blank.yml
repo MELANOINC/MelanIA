@@ -1,9 +1,9 @@
 name: Lead Generation and Sales
 
 on:
-  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
+  workflow_dispatch:  # Ejecución manual
   schedule:
-    - cron: "0 10 * * *"  # Corre todos los días a las 10 AM UTC
+    - cron: "0 10 * * *"  # Todos los días a las 10 AM UTC
 
 jobs:
   capturar_leads:
@@ -35,15 +35,13 @@ jobs:
                -d '{"cliente_id": "MELANO123", "monto": 5000, "token": "USDT"}'
 
       - name: Enviar WhatsApp a Lead (TEST con UltraMsg)
-  run: |
-    echo "🧪 Enviando WhatsApp de prueba..."
-    curl -X POST "https://api.ultramsg.com/{{ secrets.INSTANCE_ID }}/messages/chat" \
-         -H "Content-Type: application/x-www-form-urlencoded" \
-         -d "token=${{ secrets.ULTRA_TOKEN }}" \
-         -d "to=+5491122334455" \
-         -d "body=🚀 Gracias por contactarte con MELANO INC. Tu inversión está en proceso."
-
-
+        run: |
+          echo "🧪 Enviando WhatsApp de prueba..."
+          curl -X POST "https://api.ultramsg.com/${{ secrets.INSTANCE_ID }}/messages/chat" \
+               -H "Content-Type: application/x-www-form-urlencoded" \
+               -d "token=${{ secrets.ULTRA_TOKEN }}" \
+               -d "to=+5491122334455" \
+               -d "body=🚀 Gracias por contactarte con MELANO INC. Tu inversión está en proceso."
 
   seguimiento_automatico:
     name: Seguimiento Automático
@@ -52,18 +50,15 @@ jobs:
     steps:
       - name: Detectar Leads sin Respuesta
         run: |
-          # Detectar leads sin seguimiento en el CRM
-          echo "Buscando leads sin respuesta..."
+          echo "🔍 Buscando leads sin respuesta en CRM..."
 
       - name: Enviar Recordatorio por WhatsApp/Email
         run: |
-          # Enviar recordatorio al lead
-          echo "Enviando recordatorio por WhatsApp"
+          echo "📲 Enviando recordatorio por WhatsApp..."
 
       - name: Actualizar Estado en CRM
         run: |
-          # API para actualizar el estado del lead en el CRM
-          echo "Marcando lead como 'En seguimiento'"
+          echo "✅ Marcando lead como 'En seguimiento' en CRM..."
 
   alerta_lead_caliente:
     name: Alerta por Lead Caliente
@@ -72,8 +67,11 @@ jobs:
     steps:
       - name: Detectar Actividad en Emails
         run: |
-          # Analiza actividad en correos
-          echo "Detectando actividad reciente en emails..."
+          echo "🔥 Detectando apertura/click en campañas..."
+
+      - name: Crear Tarea en CRM
+        run: |
+          echo "📌 Creando tarea para lead caliente en CRM..."
 
       - name: Crear Tarea en CRM
         run: |
