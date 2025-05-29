@@ -1,10 +1,9 @@
-# This is a basic workflow to help you get started with Actions
 name: Lead Generation and Sales
 
 on:
-  workflow_dispatch: # Permite ejecutar manualmente desde GitHub Actions
+  workflow_dispatch:  # Permite ejecutar manualmente desde GitHub
   schedule:
-    - cron: "0 10 * * *" # Corre diariamente a las 10 AM
+    - cron: "0 10 * * *"  # Corre todos los días a las 10 AM UTC
 
 jobs:
   capturar_leads:
@@ -13,34 +12,35 @@ jobs:
 
     steps:
       - name: Configurar entorno
-        run: echo "Preparando entorno para capturar leads..."
+        run: echo "🔧 Preparando entorno para capturar leads..."
 
       - name: Capturar Leads desde Webhook
         run: |
-          # Configuración para capturar leads desde un webhook
-         #!/bin/bash
-
-curl -X POST https://webhook.site/b5e9f919-3748-4024-8c46-d472e28930f7 \
-     -H "Content-Type: application/json" \
-     -d '{
-           "evento": "nueva_inversion",
-           "cliente_id": "MELANO123",
-           "monto": 5000,
-           "token": "USDT",
-           "bot": "scalping"
-         }'
-
+          echo "📡 Enviando datos a Webhook.site..."
+          curl -X POST https://webhook.site/b5e9f919-3748-4024-8c46-d472e28930f7 \
+               -H "Content-Type: application/json" \
+               -d '{
+                     "evento": "nueva_inversion",
+                     "cliente_id": "MELANO123",
+                     "monto": 5000,
+                     "token": "USDT",
+                     "bot": "scalping"
+                   }'
 
       - name: Guardar Leads en Google Sheets
         run: |
-          # Aquí puedes usar una API para guardar en Google Sheets
-          curl -X POST "https://script.google.com/macros/s/AKfycbyVsqcnJ1T7DHkBIwff3_Vdw88hBwFo-o7Z-87hH8dSO2GpYYhQL7_ANCIhnc_PEEEX/exec"
-          -d '{"leads": "data"}'
+          echo "📊 Guardando lead en Google Sheets..."
+          curl -X POST "https://script.google.com/macros/s/AKfycbyVsqcnJ1T7DHkBIwff3_Vdw88hBwFo-o7Z-87hH8dSO2GpYYhQL7_ANCIhnc_PEEEX/exec" \
+               -H "Content-Type: application/json" \
+               -d '{"cliente_id": "MELANO123", "monto": 5000, "token": "USDT"}'
 
       - name: Enviar WhatsApp a Lead
         run: |
-          # Usar API de WhatsApp para enviar mensaje
-          curl -X POST "https://api.nueva-whatsapp.com/send" -d '{"mensaje": "Gracias por contactarnos"}'
+          echo "📲 Enviando WhatsApp al lead..."
+          curl -X POST "https://api.nueva-whatsapp.com/send" \
+               -H "Content-Type: application/json" \
+               -d '{"telefono": "+5491122334455", "mensaje": "Gracias por contactarnos, tu inversión ya está en proceso 🚀"}'
+
 
   seguimiento_automatico:
     name: Seguimiento Automático
