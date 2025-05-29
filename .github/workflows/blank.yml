@@ -18,7 +18,7 @@ jobs:
       - name: Capturar Leads desde Webhook
         run: |
           # Configuración para capturar leads desde un webhook
-          curl -X POST "https://webhook.site/b5e9f919-3748-4024-8c46-d472e28930f7" 
+          curl -X POST "https://webhook.site/#!/edit/b5e9f919-3748-4024-8c46-d472e28930f7" 
           -d '{"origen": "Formulario Web"}'
 
       - name: Guardar Leads en Google Sheets
