@@ -34,12 +34,15 @@ jobs:
                -H "Content-Type: application/json" \
                -d '{"cliente_id": "MELANO123", "monto": 5000, "token": "USDT"}'
 
-      - name: Enviar WhatsApp a Lead
-        run: |
-          echo "📲 Enviando WhatsApp al lead..."
-          curl -X POST "https://api.nueva-whatsapp.com/send" \
-               -H "Content-Type: application/json" \
-               -d '{"telefono": "+5491122334455", "mensaje": "Gracias por contactarnos, tu inversión ya está en proceso 🚀"}'
+      - name: Enviar WhatsApp a Lead (TEST con UltraMsg)
+  run: |
+    echo "🧪 Enviando WhatsApp de prueba..."
+    curl -X POST "https://api.ultramsg.com/{{ secrets.INSTANCE_ID }}/messages/chat" \
+         -H "Content-Type: application/x-www-form-urlencoded" \
+         -d "token=${{ secrets.ULTRA_TOKEN }}" \
+         -d "to=+5491122334455" \
+         -d "body=🚀 Gracias por contactarte con MELANO INC. Tu inversión está en proceso."
+
 
 
   seguimiento_automatico:
