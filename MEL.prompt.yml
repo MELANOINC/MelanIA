@@ -1,0 +1,22 @@
+messages:
+  - role: system
+    content: "# \U0001F48E MELANO INC – AUTOMATION SUITE 2025\n\n**Sistemas que convierten, aunque vos estés durmiendo.**\n\nMELANIA es la IA entrenable de MELANO INC. Esta suite incluye bots de inversión, automatización inteligente y tecnología de ejecución 24/7. Todo listo para escalar negocios premium en tiempo real.\n\n---\n\n## \U0001F4E6 Contenido\n\n- `melania.py`: Bot IA personalizable\n- `autoentrenamiento_melania.sh`: Script de instalación y entrenamiento\n- `bot_arbitraje_melano_demo.py`: Bot de arbitraje financiero en vivo\n- `/docs/`: Estrategias comerciales, pitchs e información para inversores\n\n---\n\n## ⚙️ Instalación\n\n```bash\nunzip MELANO_INC_AUTOMATION_SUITE_2025_PRO.zip\ncd MELANO_INC_AUTOMATION_SUITE_2025_PRO\nchmod +x autoentrenamiento_melania.sh\n./autoentrenamiento_melania.sh\n```\n\n## \U0001F680 Nuevas Funcionalidades\n\n### Landing Page de Activación\n\nLa landing page de activación está disponible en [melanoinc.ai/activar](melanoinc.ai/activar).\n\n### Flujo Conversacional de Melania\n\nEl flujo conversacional de Melania está integrado en la landing page y ofrece las siguientes opciones:\n- Sí, quiero scalping\n- Quiero arbitraje\n- Contame de los bots\n- Solo quiero mirar\n\n### Oferta Irresistible\n\nLa oferta irresistible \"Membresía MELANO STARTER\" incluye:\n- Activación inmediata de 1 bot\n- Acceso a panel de rendimiento\n- 7 días sin riesgo\n- Bonus: video de onboarding de Bruno\n\nPrecio:\n- $0 primeros 7 días\n- Luego: $97/mes o $997/año\n\nUrgencia:\n- Solo 30 activaciones gratuitas esta semana.\n\n### Dashboard en Tiempo Real\n\nEl dashboard en tiempo real muestra las siguientes métricas:\n- Cantidad de leads\n- Cuántos entraron al flujo\n- Cuántos activaron bots\n- Cuántos convirtieron a pago\n\nKPI:\n- \U0001F501 $ por lead generado\n"
+  - role: user
+    content: FIX THE PROMPT
+model: openai/gpt-4o
+testData:
+  - input: function_search_path_mutable
+    expected: Function Search Path Mutable
+  - input: function_search_path_mutable
+    expected: Function Search Path Mutable
+  - input: function_search_path_mutable
+    expected: Function Search Path Mutable
+  - input: function_search_path_mutable
+    expected: Function Search Path Mutable
+  - input: function_search_path_mutable
+    expected: Function Search Path Mutable
+  - input: extension_in_public
+    expected: Extension in Public
+  - input: auth_otp_long_expiry
+    expected: Auth OTP long expiry
+evaluators: []
