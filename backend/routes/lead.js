@@ -5,10 +5,10 @@ const { saveLead, triggerMelaniaFlow, sendWhatsAppMessage } = require('../servic
 // Route to handle lead form submissions
 router.post('/submit', async (req, res) => {
     try {
-        const { name, whatsapp, interest } = req.body;
+        const { name, whatsapp, interest, email, department } = req.body;
 
         // Save lead data to the database
-        await saveLead({ name, whatsapp, interest });
+        await saveLead({ name, whatsapp, interest, email, department });
 
         // Trigger the Melania conversational flow upon form submission
         await triggerMelaniaFlow({ name, whatsapp, interest });
