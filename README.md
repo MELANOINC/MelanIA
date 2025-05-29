@@ -17,12 +17,12 @@ MELANIA es la IA entrenable de MELANO INC. Esta suite incluye bots de inversión
 
 ## ⚙️ Instalación
 
-```bash
+\`\`\`bash
 unzip MELANO_INC_AUTOMATION_SUITE_2025_PRO.zip
 cd MELANO_INC_AUTOMATION_SUITE_2025_PRO
 chmod +x autoentrenamiento_melania.sh
 ./autoentrenamiento_melania.sh
-```
+\`\`\`
 
 ## 🚀 Nuevas Funcionalidades
 
