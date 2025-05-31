@@ -40,7 +40,7 @@ jobs:
           curl -X POST "https://api.ultramsg.com/${{ secrets.INSTANCE_ID }}/messages/chat" \
                -H "Content-Type: application/x-www-form-urlencoded" \
                -d "token=${{ secrets.ULTRA_TOKEN }}" \
-               -d "to=+5491122334455" \
+               -d "to=+5492235506585" \
                -d "body=🚀 Gracias por contactarte con MELANO INC. Tu inversión está en proceso."
 
   seguimiento_automatico:
