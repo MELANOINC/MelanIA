@@ -11,7 +11,7 @@ router.post('/submit',  async function (req, res) {
             await saveLead({ name, whatsapp, interest, email, department });
 
             // Trigger the Melania conversational flow upon form submission
-            await triggerMelaniaFlow({ name, whatsapp, interest });
+            await triggerMelaniaFlow({ name, whatsapp, interest, email, department });
 
             // Send a confirmation message to the lead via WhatsApp
             await sendWhatsAppMessage(whatsapp, 'Gracias por contactarnos. Melania te asistirá en breve.');
