@@ -12,7 +12,7 @@ const Activar = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission and redirect to Melania conversational flow
-    history.push(`/melania_flow?name=${name}&whatsapp=${whatsapp}&interest=${interest}&email=${email}&department=${department}`);
+    history.push(`/melania_flow?name=${encodeURIComponent(name)}&whatsapp=${encodeURIComponent(whatsapp)}&interest=${encodeURIComponent(interest)}&email=${encodeURIComponent(email)}&department=${encodeURIComponent(department)}`);
   };
 
   return (
