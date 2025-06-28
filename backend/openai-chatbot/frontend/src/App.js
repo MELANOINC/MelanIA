@@ -1,0 +1,19 @@
+chatbot_project/
+│
+├── backend/
+│   ├── app.py                # Main application file
+│   ├── chatbot.py            # Chatbot logic
+│   ├── requirements.txt      # Python dependencies
+│   ├── config.py             # Configuration settings
+│   ├── tests/                # Test directory
+│   │   ├── test_chatbot.py   # Tests for chatbot logic
+│   └── .env                  # Environment variables
+│
+├── frontend/
+│   ├── index.html            # Main HTML file
+│   ├── styles.css            # CSS styles
+│   ├── script.js             # JavaScript for frontend logic
+│   └── assets/               # Static assets (images, etc.)
+│
+├── README.md                 # Project documentation
+└── .gitignore                # Git ignore file
