@@ -1,5 +1,0 @@
-FastAPI
-uvicorn
-openai
-python-dotenv
-pytest
