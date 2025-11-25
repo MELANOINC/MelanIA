@@ -92,11 +92,11 @@ router.get('/mensajes-por-dia',
           COUNT(CASE WHEN tipo = 'message_sent' THEN 1 END) as enviados
         FROM eventos
         WHERE cliente_id = $1 
-          AND fecha >= CURRENT_DATE - INTERVAL '${days} days'
+          AND fecha >= CURRENT_DATE - $2 * INTERVAL '1 day'
           AND tipo IN ('message_received', 'message_sent')
         GROUP BY DATE(fecha)
         ORDER BY dia DESC
-      `, [clientId]);
+      `, [clientId, days]);
       
       res.json({
         success: true,
